@@ -8,6 +8,8 @@ import { MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
 import BooksTable from "../components/home/BooksTable";
 import BooksCard from "../components/home/BooksCard";
 
+const baseurl = "https://book-store-me.onrender.com";
+
 const Home = () => {
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -16,7 +18,7 @@ const Home = () => {
     useEffect(() => {
         setLoading(true);
         axios
-            .get("http://localhost:5555/books")
+            .get(`${baseurl}/books`)
             .then((response) => {
                 setBooks(response.data.data);
                 setLoading(false);
